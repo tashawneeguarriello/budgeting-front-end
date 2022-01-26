@@ -13,7 +13,7 @@ function Transactions() {
         setTransactions(response.data);
       })
       .catch((e) => console.log("catch", e));
-  }, []); //use this effect when what is in the [] is hit or when its empty only on the initial render
+  }, [API]); //use this effect when what is in the [] is hit or when its empty only on the initial render
 
   return (
     <div className="Transactions">

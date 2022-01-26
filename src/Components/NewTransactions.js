@@ -13,6 +13,7 @@ function NewTransactions() {
   });
 
   const handleTextChange = (event) => {
+    console.log(event.target.value);
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
   };
 
@@ -41,11 +42,11 @@ function NewTransactions() {
           placeholder="date of transaction"
           required
         />
-        <label htmlFor="name">Name of Transaction:</label>
+        <label htmlFor="item_name">Name of Transaction:</label>
         <input
-          id="name"
+          id="item_name"
           type="text"
-          name="name"
+          name="item_name"
           placeholder="what is this transaction?"
           onChange={handleTextChange}
         />

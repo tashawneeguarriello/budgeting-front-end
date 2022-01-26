@@ -15,7 +15,7 @@ function TransactionDetails() {
     axios
       .get(`${API}/transactions/${index}`)
       .then((response) => setTransaction(response.data));
-  }, []);
+  }, [API, index]);
   const handleDelete = () => {
     axios
       .delete(`${API}/transactions/${index}`)
