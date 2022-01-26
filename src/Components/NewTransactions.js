@@ -7,10 +7,9 @@ function NewTransactions() {
   const URL = process.env.REACT_APP_API_URL;
   const [transaction, setTransaction] = useState({
     date: "",
-    from: "",
     item_name: "",
     amount: 0,
-    amount: "",
+    from: "",
   });
 
   const handleTextChange = (event) => {
@@ -28,27 +27,25 @@ function NewTransactions() {
     axios
       .post(`${URL}/transactions`, transaction)
       .then(() => navigate("/transactions"));
-    // OR:
-    // addtransaction(transaction);
   };
 
   return (
     <div className="New">
+      <h3>Add a New Item</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="date">Date:</label>
         <input
           id="date"
-          value={transaction.date}
           type="text"
           onChange={handleTextChange}
           placeholder="date of transaction"
           required
         />
-        <label htmlFor="name">Name of Transaction</label>
+        <label htmlFor="name">Name of Transaction:</label>
         <input
           id="name"
           type="text"
-          value={transaction.name}
+          name="name"
           placeholder="what is this transaction?"
           onChange={handleTextChange}
         />
@@ -57,15 +54,13 @@ function NewTransactions() {
           id="amount"
           type="text"
           name="amount"
-          value={transaction.amount}
           placeholder="amount..."
-          onChange={addTransaction}
+          onChange={(addTransaction, handleTextChange)}
         />
         <label htmlFor="from">From:</label>
         <input
           id="from"
           type="text"
-          value={transaction.from}
           placeholder="who this transaction was with (ie. employer, bank, pet store, grocery store, etc)"
           onChange={handleTextChange}
         />
@@ -73,9 +68,8 @@ function NewTransactions() {
         <textarea
           id="category"
           name="category"
-          value={transaction.category}
           onChange={handleTextChange}
-          placeholder=" what category does this fall into (income, savings, pets, food, etc) - bonus, make this an options list on the new/edit forms.
+          placeholder=" what category does this fall into (income, savings, pets, food, etc)
           "
         />
         <br />

@@ -19,6 +19,7 @@ function Transactions() {
     <div className="Transactions">
       <section>
         <ul>
+          <h1>Bank Account Total:</h1>
           {transactions.map((transaction, index) => {
             return (
               <Transaction
