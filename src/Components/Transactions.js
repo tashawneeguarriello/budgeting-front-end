@@ -13,7 +13,7 @@ function Transactions() {
         setTransactions(response.data);
       })
       .catch((e) => console.log("catch", e));
-  }, [API]); //use this effect when what is in the [] is hit or when its empty only on the initial render
+  }, [API]);
 
   let bankTotal = 1000;
 
@@ -22,7 +22,6 @@ function Transactions() {
   let amount = total.reduce((prev, curr) => Number(prev) + Number(curr), 0);
 
   let currentBalance = bankTotal - amount;
-  let numBalance = currentBalance.toFixed(2);
 
   return (
     <div className="Transactions">
