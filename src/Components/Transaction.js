@@ -24,6 +24,7 @@ function Transaction({ transaction, index }) {
       </td>
     </tr>
   );
-}
+} 
+
 
 export default Transaction;
