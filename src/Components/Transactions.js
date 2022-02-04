@@ -15,13 +15,9 @@ function Transactions() {
       .catch((e) => console.log("catch", e));
   }, [API]);
 
-  let bankTotal = 1000;
-
   let total = transactions.map((transaction) => transaction.amount);
 
   let amount = total.reduce((prev, curr) => Number(prev) + Number(curr), 0);
-
-  let currentBalance = bankTotal - amount;
 
   return (
     <div className="Transactions">
