@@ -15,22 +15,20 @@ function Transactions() {
       .catch((e) => console.log("catch", e));
   }, [API]); //use this effect when what is in the [] is hit or when its empty only on the initial render
 
-  let bankTotal = 0;
+  let bankTotal = 1000;
 
-  let total = transactions.map((transactions) => transactions.amount);
+  let total = transactions.map((transaction) => transaction.amount);
 
   let amount = total.reduce((prev, curr) => Number(prev) + Number(curr), 0);
 
   let currentBalance = bankTotal - amount;
   let numBalance = currentBalance.toFixed(2);
 
-  let amount;
-
   return (
     <div className="Transactions">
       <section>
         <ul>
-          <h1>Bank Account Total: ${bankTotal.toFixed(2)}</h1>
+          <h1>Budget Total: {"$" + amount.toFixed(2)}</h1>
           {transactions.map((transaction, index) => {
             return (
               <Transaction
