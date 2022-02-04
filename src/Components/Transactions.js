@@ -24,15 +24,17 @@ function Transactions() {
       <section>
         <ul>
           <h1>Budget Total: {"$" + amount.toFixed(2)}</h1>
-          {transactions.map((transaction, index) => {
-            return (
-              <Transaction
-                key={index}
-                transaction={transaction}
-                index={index}
-              />
-            );
-          })}
+          <table>
+            {transactions.map((transaction, index) => {
+              return (
+                <Transaction
+                  key={index}
+                  transaction={transaction}
+                  index={index}
+                />
+              );
+            })}
+          </table>
         </ul>
       </section>
     </div>
