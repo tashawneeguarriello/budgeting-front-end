@@ -4,11 +4,11 @@ import New from "./Pages/New";
 import Show from "./Pages/Show";
 import Edit from "./Pages/Edit";
 
-import NavBar from "./Components/Navbar/Navbar";
+import NavBar from "./Components/Navbar";
 
 function App() {
   return (
-    <div>
+    <div className='wrapper'>
       <NavBar />
       <main>
         <Routes>
