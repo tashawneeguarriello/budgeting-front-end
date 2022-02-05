@@ -16,6 +16,7 @@ function TransactionDetails() {
       .get(`${API}/transactions/${index}`)
       .then((response) => setTransaction(response.data));
   }, [API, index]);
+
   const handleDelete = () => {
     axios
       .delete(`${API}/transactions/${index}`)
@@ -26,7 +27,7 @@ function TransactionDetails() {
       <h3>{transaction.date}</h3>
       <h5>
         <span>
-          <a href={transaction.item_name}>{transaction.item_name}</a>
+          <a href={transaction.name}>{transaction.name}</a>
         </span>{" "}
       </h5>
       <h6>{transaction.amount}</h6>
