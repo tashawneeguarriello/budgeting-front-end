@@ -19,11 +19,19 @@ function Transactions() {
 
   let amount = total.reduce((prev, curr) => Number(prev) + Number(curr), 0);
 
+  let color = "black";
+  if (amount > 1000) {
+    color = "green";
+  } else if (amount < 0) {
+    color = "red";
+  }
   return (
     <div className="Transactions">
       <section>
         <ul>
-          <h1>Budget Total: {"$" + amount.toFixed(2)}</h1>
+          <h1 style={{ color: color }}>
+            Budget Total: {"$" + amount.toFixed(2)}
+          </h1>
           <table>
             <thead></thead>
             <tbody>

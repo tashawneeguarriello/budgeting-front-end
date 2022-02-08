@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import "./TransactionEditForm.css";
 
 function TransactionEditForm() {
   const API = process.env.REACT_APP_API_URL;
@@ -41,7 +42,7 @@ function TransactionEditForm() {
 
   return (
     <div className="Edit">
-      <form onSubmit={handleSubmit}>
+      <form className="edit-form" onSubmit={handleSubmit}>
         <label htmlFor="date">Date:</label>
         <input
           id="date"
@@ -53,6 +54,16 @@ function TransactionEditForm() {
           required
         />
 
+        <label htmlFor="name">Name:</label>
+        <input
+          id="name"
+          name="name"
+          value={transaction.name}
+          type="text"
+          onChange={handleTextChange}
+          placeholder="Name of Transaction"
+          required
+        />
         <label htmlFor="from">From:</label>
         <input
           id="from"
@@ -64,29 +75,20 @@ function TransactionEditForm() {
         />
 
         <label htmlFor="amount">Amount:</label>
-        <textarea
+        <input
           id="amount"
+          type="number"
           name="amount"
           value={transaction.amount}
           onChange={handleTextChange}
           placeholder="Amount"
         />
 
-        <label htmlFor="catergory">Catergory</label>
+        <label htmlFor="category">Category</label>
         <input
           id="category"
-          type="category"
-          onChange={handleCheckboxChange}
-          checked={transaction.category}
-        />
-
-        <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
-        <input
-          id="daysSinceLastCrisis"
-          type="number"
-          name="daysSinceLastCrisis"
-          value={log.daysSinceLastCrisis}
-          placeholder="Please enter days since last"
+          type="text"
+          value={transaction.category}
           onChange={handleTextChange}
         />
 

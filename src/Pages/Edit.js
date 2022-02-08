@@ -1,10 +1,7 @@
+import TransactionEditForm from "../Components/TransactionEditForm";
+
 function Edit() {
-  return (
-    // <div className="Transactions">
-    //   <Transactions />
-    // </div>
-    null
-  );
+  return <TransactionEditForm />;
 }
 
 export default Edit;
