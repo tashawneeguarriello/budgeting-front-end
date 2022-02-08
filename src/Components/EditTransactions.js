@@ -1,9 +1,10 @@
 import axios from "axios";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-function NewTransactions() {
+function EditTransactions() {
   const navigate = useNavigate();
+  console.log(useParams());
   const URL = process.env.REACT_APP_API_URL;
   const [transaction, setTransaction] = useState({
     date: "",
@@ -12,6 +13,9 @@ function NewTransactions() {
     from: "",
   });
 
+  //think about the handleSubmit
+  //in the new page handleSubmit we use .post but edit is .put
+
   const handleTextChange = (event) => {
     console.log(event.target.value);
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
@@ -19,7 +23,7 @@ function NewTransactions() {
 
   const addTransaction = (newTransaction) => {
     axios
-      .post(`${URL}/transactions`, newTransaction)
+      .put(`${URL}/transactions`, newTransaction)
       .then(() => navigate("/transactions"));
   };
 
