@@ -6,6 +6,7 @@ function TransactionDetails() {
   const API = process.env.REACT_APP_API_URL;
   const [transaction, setTransaction] = useState([]);
   const { index } = useParams();
+  console.log(useParams());
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,15 +23,21 @@ function TransactionDetails() {
       .delete(`${API}/transactions/${index}`)
       .then(() => navigate("/transactions"));
   };
+
+  const handleEdit = () => {
+    navigate(`/transactions/${index}/edit`);
+  };
   return (
     <article>
-      <h3>{transaction.date}</h3>
-      <h5>
+      <h4>{transaction.date}</h4>
+      <h4>
         <span>
           <a href={transaction.name}>{transaction.name}</a>
         </span>{" "}
-      </h5>
-      <h6>{transaction.amount}</h6>
+      </h4>
+      <h4>{transaction.from}</h4>
+      <h4>{transaction.amount}</h4>
+      <h4>{transaction.category}</h4>
       <div className="showNavigation">
         <div>
           {" "}
@@ -41,6 +48,10 @@ function TransactionDetails() {
         <div>
           {" "}
           <button onClick={handleDelete}>Delete</button>
+        </div>
+        <div>
+          {" "}
+          <button onClick={handleEdit}>Edit</button>
         </div>
       </div>
     </article>

@@ -1,0 +1,8 @@
+.edit-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-form > input {
+  width: 7em;
+}
