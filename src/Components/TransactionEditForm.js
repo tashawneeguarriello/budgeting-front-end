@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "./TransactionEditForm.css";
 
 function TransactionEditForm() {
@@ -28,7 +28,7 @@ function TransactionEditForm() {
     axios.get(`${API}/transactions/${index}`).then((response) => {
       setTransaction(response.data);
     });
-  }, []);
+  }, [API, index]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
