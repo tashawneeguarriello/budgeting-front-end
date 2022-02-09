@@ -29,15 +29,11 @@ function TransactionDetails() {
   };
   return (
     <article>
-      <h4>{transaction.date}</h4>
-      <h4>
-        <span>
-          <a href={transaction.name}>{transaction.name}</a>
-        </span>{" "}
-      </h4>
-      <h4>{transaction.from}</h4>
-      <h4>{transaction.amount}</h4>
-      <h4>{transaction.category}</h4>
+      <h4>Date: {transaction.date}</h4>
+      <h4>Name: {transaction.name}</h4>
+      <h4>From: {transaction.from}</h4>
+      <h4>Amount: {transaction.amount}</h4>
+      <h4>Category: {transaction.category}</h4>
       <div className="showNavigation">
         <div>
           {" "}
